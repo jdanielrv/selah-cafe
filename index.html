@@ -266,7 +266,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
   </div>
 </div>
 
-<div class="sech"><span class="sect">Nuestros cafés</span><span class="secc">10 variedades</span></div>
+<div class="sech"><span class="sect">Nuestros cafés</span><span class="secc">13 variedades</span></div>
 
 <div class="products" id="pl">
 
@@ -274,139 +274,195 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
   <div class="pcard" data-c="e">
     <div class="pband pb-e"></div>
     <div class="pbody">
-      <div class="ptop"><div class="pvar">Clásico · ₡8.500/kg</div><span class="badge bb">⭐ Más vendido</span></div>
+      <div class="ptop"><div class="pvar">Clásico · Tarrazú · ₡9.000/kg</div><span class="badge bb">⭐ Más vendido</span></div>
       <div class="pname">Tradicional</div>
       <div class="pnotes"><span class="fn">Chocolate suave</span><span class="fn">Caramelo</span><span class="fn">Nuez</span></div>
       <div class="pdiv"></div>
-      <div class="srow"><button class="sb active" onclick="sz(this,'Tradicional',500,4250)">500g — ₡4.250</button></div>
+      <div class="srow"><button class="sb active" onclick="sz(this,'Tradicional',500,4500)">500g — ₡4.500</button></div>
       <div class="pbot">
-        <div class="pbl"><div class="plbl">Precio</div><div class="pmain" id="pr-Tradicional">₡4.250</div><div class="panch">Solo presentación 500g</div></div>
-        <div class="qty-ctrl" id="qc-Tradicional">
-          <button class="qb" onclick="decQty('Tradicional','500g',4250)">−</button>
-          <span class="qnum" id="qn-Tradicional">0</span>
-          <button class="qb qb-add" onclick="incQty('Tradicional','500g',4250)">+</button>
-        </div>
+        <div class="pbl"><div class="plbl">Precio</div><div class="pmain" id="pr-Tradicional">₡4.500</div><div class="panch">Solo presentación 500g</div></div>
+        <div class="qty-ctrl" id="qc-Tradicional"><button class="qb" onclick="decQty('Tradicional','500g',4500)">−</button><span class="qnum" id="qn-Tradicional">0</span><button class="qb qb-add" onclick="incQty('Tradicional','500g',4500)">+</button></div>
       </div>
     </div>
   </div>
 
-  <!-- CARACOLILLO -->
+  <!-- PEABERRY -->
   <div class="pcard" data-c="m">
     <div class="pband pb-m"></div>
     <div class="pbody">
-      <div class="ptop"><div class="pvar">Variedad especial · ₡16.000/kg</div><span class="badge bl">🔴 Lotes limitados</span></div>
-      <div class="pname">Caracolillo <span style="font-size:14px;font-weight:400;color:var(--ink3)">(Peaberry)</span></div>
+      <div class="ptop"><div class="pvar">Variedad especial · Tarrazú · ₡16.000/kg</div><span class="badge bl">🔴 Lotes limitados</span></div>
+      <div class="pname">Peaberry <span style="font-size:14px;font-weight:400;color:var(--ink3)">(Caracolillo)</span></div>
       <div class="pnotes"><span class="fn">Frutas tropicales</span><span class="fn">Miel</span><span class="fn">Acidez brillante</span></div>
       <div class="scar"><div class="sdot"></div><div class="stxt">Solo el 5% de cada cosecha. Seleccionado grano a grano.</div></div>
       <div class="pdiv"></div>
       <div class="srow">
-        <button class="sb active" onclick="sz(this,'Caracolillo',250,4000)">250g — ₡4.000</button>
-        <button class="sb" onclick="sz(this,'Caracolillo',340,5440)">340g — ₡5.440</button>
-        <button class="sb" onclick="sz(this,'Caracolillo',500,8000)">500g — ₡8.000</button>
+        <button class="sb active" onclick="sz(this,'Peaberry',250,4000)">250g — ₡4.000</button>
+        <button class="sb" onclick="sz(this,'Peaberry',340,5440)">340g — ₡5.440</button>
+        <button class="sb" onclick="sz(this,'Peaberry',500,8000)">500g — ₡8.000</button>
       </div>
       <div class="pbot">
-        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Caracolillo">₡4.000</div><div class="panch">Grano por grano, seleccionado a mano</div></div>
-        <div class="qty-ctrl" id="qc-Caracolillo">
-          <button class="qb" onclick="decQty('Caracolillo','250g',4000)">−</button>
-          <span class="qnum" id="qn-Caracolillo">0</span>
-          <button class="qb qb-add" onclick="incQty('Caracolillo','250g',4000)">+</button>
-        </div>
+        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Peaberry">₡4.000</div><div class="panch">Grano por grano, seleccionado a mano</div></div>
+        <div class="qty-ctrl" id="qc-Peaberry"><button class="qb" onclick="decQty('Peaberry','250g',4000)">−</button><span class="qnum" id="qn-Peaberry">0</span><button class="qb qb-add" onclick="incQty('Peaberry','250g',4000)">+</button></div>
       </div>
     </div>
   </div>
 
-  <!-- LAVADO NARANJO -->
+  <!-- CATUAÍ MIEL RED HONEY -->
   <div class="pcard" data-c="m">
     <div class="pband pb-m"></div>
     <div class="pbody">
-      <div class="ptop"><div class="pvar">Origen · Naranjo, Alajuela · ₡16.000/kg</div><span class="badge bg">🌿 Región certificada</span></div>
-      <div class="pname">Lavado Naranjo</div>
-      <div class="pnotes"><span class="fn">Cítrico suave</span><span class="fn">Durazno</span><span class="fn">Miel</span><span class="fn">Chocolate con leche</span></div>
+      <div class="ptop"><div class="pvar">Honey · Tarrazú · ₡20.000/kg</div><span class="badge bg">🍯 Proceso Miel</span></div>
+      <div class="pname">Catuaí Miel <em>Red Honey</em></div>
+      <div class="pnotes"><span class="fn">Durazno maduro</span><span class="fn">Azúcar morena</span><span class="fn">Chocolate con leche</span></div>
       <div class="pdiv"></div>
       <div class="srow">
-        <button class="sb active" onclick="sz(this,'Lavado Naranjo',250,4000)">250g — ₡4.000</button>
-        <button class="sb" onclick="sz(this,'Lavado Naranjo',340,5440)">340g — ₡5.440</button>
-        <button class="sb" onclick="sz(this,'Lavado Naranjo',500,8000)">500g — ₡8.000</button>
+        <button class="sb active" onclick="sz(this,'Catuaí Red Honey',250,5000)">250g — ₡5.000</button>
+        <button class="sb" onclick="sz(this,'Catuaí Red Honey',340,6800)">340g — ₡6.800</button>
+        <button class="sb" onclick="sz(this,'Catuaí Red Honey',500,10000)">500g — ₡10.000</button>
       </div>
       <div class="pbot">
-        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Lavado Naranjo">₡4.000</div><div class="panch">Valle Occidental, Cordillera Central</div></div>
-        <div class="qty-ctrl" id="qc-Lavado_Naranjo">
-          <button class="qb" onclick="decQty('Lavado Naranjo','250g',4000)">−</button>
-          <span class="qnum" id="qn-Lavado_Naranjo">0</span>
-          <button class="qb qb-add" onclick="incQty('Lavado Naranjo','250g',4000)">+</button>
-        </div>
+        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Catuaí Red Honey">₡5.000</div><div class="panch">Dulzura natural del proceso miel</div></div>
+        <div class="qty-ctrl" id="qc-Catuaí_Red_Honey"><button class="qb" onclick="decQty('Catuaí Red Honey','250g',5000)">−</button><span class="qnum" id="qn-Catuaí_Red_Honey">0</span><button class="qb qb-add" onclick="incQty('Catuaí Red Honey','250g',5000)">+</button></div>
       </div>
     </div>
   </div>
 
-  <!-- LAVADO TARRAZÚ -->
+  <!-- CATUAÍ MIEL BLACK HONEY -->
   <div class="pcard" data-c="m">
     <div class="pband pb-m"></div>
     <div class="pbody">
-      <div class="ptop"><div class="pvar">Origen · Tarrazú, Los Santos · ₡16.000/kg</div><span class="badge bg">🏔 Denominación de origen</span></div>
-      <div class="pname">Lavado Tarrazú</div>
-      <div class="pnotes"><span class="fn">Naranja</span><span class="fn">Jazmín</span><span class="fn">Chocolate negro</span><span class="fn">Acidez viva</span></div>
+      <div class="ptop"><div class="pvar">Honey · Tarrazú · ₡20.000/kg</div><span class="badge bg">🍯 Black Honey</span></div>
+      <div class="pname">Catuaí Miel <em>Black Honey</em></div>
+      <div class="pnotes"><span class="fn">Fruta tropical</span><span class="fn">Higo</span><span class="fn">Miel oscura</span><span class="fn">Melaza</span></div>
       <div class="pdiv"></div>
       <div class="srow">
-        <button class="sb active" onclick="sz(this,'Lavado Tarrazú',250,4000)">250g — ₡4.000</button>
-        <button class="sb" onclick="sz(this,'Lavado Tarrazú',340,5440)">340g — ₡5.440</button>
-        <button class="sb" onclick="sz(this,'Lavado Tarrazú',500,8000)">500g — ₡8.000</button>
+        <button class="sb active" onclick="sz(this,'Catuaí Black Honey',250,5000)">250g — ₡5.000</button>
+        <button class="sb" onclick="sz(this,'Catuaí Black Honey',340,6800)">340g — ₡6.800</button>
+        <button class="sb" onclick="sz(this,'Catuaí Black Honey',500,10000)">500g — ₡10.000</button>
       </div>
       <div class="pbot">
-        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Lavado Tarrazú">₡4.000</div><div class="panch">Entre los mejores cafés del mundo</div></div>
-        <div class="qty-ctrl" id="qc-Lavado_Tarrazú">
-          <button class="qb" onclick="decQty('Lavado Tarrazú','250g',4000)">−</button>
-          <span class="qnum" id="qn-Lavado_Tarrazú">0</span>
-          <button class="qb qb-add" onclick="incQty('Lavado Tarrazú','250g',4000)">+</button>
-        </div>
+        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Catuaí Black Honey">₡5.000</div><div class="panch">El más dulce y afrutado de la familia</div></div>
+        <div class="qty-ctrl" id="qc-Catuaí_Black_Honey"><button class="qb" onclick="decQty('Catuaí Black Honey','250g',5000)">−</button><span class="qnum" id="qn-Catuaí_Black_Honey">0</span><button class="qb qb-add" onclick="incQty('Catuaí Black Honey','250g',5000)">+</button></div>
       </div>
     </div>
   </div>
 
-  <!-- TUESTE OSCURO TARRAZÚ -->
+  <!-- H1 MIEL -->
   <div class="pcard" data-c="m">
     <div class="pband pb-m"></div>
     <div class="pbody">
-      <div class="ptop"><div class="pvar">Tueste oscuro · Tarrazú · ₡16.000/kg</div><span class="badge bo">🔥 Tueste intenso</span></div>
-      <div class="pname">Tueste Oscuro <em>Tarrazú</em></div>
-      <div class="pnotes"><span class="fn">Chocolate negro</span><span class="fn">Cacao</span><span class="fn">Cuerpo pleno</span><span class="fn">Terroso</span></div>
+      <div class="ptop"><div class="pvar">Honey · Naranjo · ₡20.000/kg</div><span class="badge bg">🌿 Híbrido Nacional</span></div>
+      <div class="pname">H1 <em>Miel</em></div>
+      <div class="pnotes"><span class="fn">Manzana caramelizada</span><span class="fn">Albaricoque</span><span class="fn">Azúcar morena</span></div>
       <div class="pdiv"></div>
       <div class="srow">
-        <button class="sb active" onclick="sz(this,'Tueste Oscuro Tarrazú',250,4000)">250g — ₡4.000</button>
-        <button class="sb" onclick="sz(this,'Tueste Oscuro Tarrazú',340,5440)">340g — ₡5.440</button>
-        <button class="sb" onclick="sz(this,'Tueste Oscuro Tarrazú',500,8000)">500g — ₡8.000</button>
+        <button class="sb active" onclick="sz(this,'H1 Miel',250,5000)">250g — ₡5.000</button>
+        <button class="sb" onclick="sz(this,'H1 Miel',340,6800)">340g — ₡6.800</button>
+        <button class="sb" onclick="sz(this,'H1 Miel',500,10000)">500g — ₡10.000</button>
       </div>
       <div class="pbot">
-        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Tueste Oscuro Tarrazú">₡4.000</div><div class="panch">Región insignia de Costa Rica</div></div>
-        <div class="qty-ctrl" id="qc-Tueste_Oscuro_Tarrazú">
-          <button class="qb" onclick="decQty('Tueste Oscuro Tarrazú','250g',4000)">−</button>
-          <span class="qnum" id="qn-Tueste_Oscuro_Tarrazú">0</span>
-          <button class="qb qb-add" onclick="incQty('Tueste Oscuro Tarrazú','250g',4000)">+</button>
-        </div>
+        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-H1 Miel">₡5.000</div><div class="panch">Innovación costarricense, sabor elegante</div></div>
+        <div class="qty-ctrl" id="qc-H1_Miel"><button class="qb" onclick="decQty('H1 Miel','250g',5000)">−</button><span class="qnum" id="qn-H1_Miel">0</span><button class="qb qb-add" onclick="incQty('H1 Miel','250g',5000)">+</button></div>
       </div>
     </div>
   </div>
 
-  <!-- TYPICA -->
+  <!-- CENTROAMERICANO MIEL -->
   <div class="pcard" data-c="m">
     <div class="pband pb-m"></div>
     <div class="pbody">
-      <div class="ptop"><div class="pvar">Variedad histórica · ₡16.000/kg</div><span class="badge bg">🏛 Ancestral</span></div>
-      <div class="pname">Typica</div>
-      <div class="pnotes"><span class="fn">Manzana fresca</span><span class="fn">Sidra</span><span class="fn">Floral</span><span class="fn">Acidez málica</span></div>
+      <div class="ptop"><div class="pvar">Honey · Tarrazú · ₡20.000/kg</div><span class="badge bg">🍯 Blend Regional</span></div>
+      <div class="pname">Centroamericano <em>Miel</em></div>
+      <div class="pnotes"><span class="fn">Toffee</span><span class="fn">Fruta de hueso</span><span class="fn">Canela</span></div>
       <div class="pdiv"></div>
       <div class="srow">
-        <button class="sb active" onclick="sz(this,'Typica',250,4000)">250g — ₡4.000</button>
-        <button class="sb" onclick="sz(this,'Typica',340,5440)">340g — ₡5.440</button>
-        <button class="sb" onclick="sz(this,'Typica',500,8000)">500g — ₡8.000</button>
+        <button class="sb active" onclick="sz(this,'Centroamericano Miel',250,5000)">250g — ₡5.000</button>
+        <button class="sb" onclick="sz(this,'Centroamericano Miel',340,6800)">340g — ₡6.800</button>
+        <button class="sb" onclick="sz(this,'Centroamericano Miel',500,10000)">500g — ₡10.000</button>
       </div>
       <div class="pbot">
-        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Typica">₡4.000</div><div class="panch">Madre de todas las variedades modernas</div></div>
-        <div class="qty-ctrl" id="qc-Typica">
-          <button class="qb" onclick="decQty('Typica','250g',4000)">−</button>
-          <span class="qnum" id="qn-Typica">0</span>
-          <button class="qb qb-add" onclick="incQty('Typica','250g',4000)">+</button>
-        </div>
+        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Centroamericano Miel">₡5.000</div><div class="panch">Perfecto para el día a día</div></div>
+        <div class="qty-ctrl" id="qc-Centroamericano_Miel"><button class="qb" onclick="decQty('Centroamericano Miel','250g',5000)">−</button><span class="qnum" id="qn-Centroamericano_Miel">0</span><button class="qb qb-add" onclick="incQty('Centroamericano Miel','250g',5000)">+</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATUAÍ ROJO LAVADO NARANJO -->
+  <div class="pcard" data-c="m">
+    <div class="pband pb-e"></div>
+    <div class="pbody">
+      <div class="ptop"><div class="pvar">Lavado · Naranjo · ₡16.000/kg</div><span class="badge bg">💧 Washed</span></div>
+      <div class="pname">Catuaí Rojo Lavado <em>Naranjo</em></div>
+      <div class="pnotes"><span class="fn">Limón</span><span class="fn">Chocolate blanco</span><span class="fn">Almendra</span></div>
+      <div class="pdiv"></div>
+      <div class="srow">
+        <button class="sb active" onclick="sz(this,'Catuaí Lavado Naranjo',250,4000)">250g — ₡4.000</button>
+        <button class="sb" onclick="sz(this,'Catuaí Lavado Naranjo',340,5440)">340g — ₡5.440</button>
+        <button class="sb" onclick="sz(this,'Catuaí Lavado Naranjo',500,8000)">500g — ₡8.000</button>
+      </div>
+      <div class="pbot">
+        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Catuaí Lavado Naranjo">₡4.000</div><div class="panch">Limpio, brillante y honesto</div></div>
+        <div class="qty-ctrl" id="qc-Catuaí_Lavado_Naranjo"><button class="qb" onclick="decQty('Catuaí Lavado Naranjo','250g',4000)">−</button><span class="qnum" id="qn-Catuaí_Lavado_Naranjo">0</span><button class="qb qb-add" onclick="incQty('Catuaí Lavado Naranjo','250g',4000)">+</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATUAÍ ROJO LAVADO TARRAZÚ -->
+  <div class="pcard" data-c="m">
+    <div class="pband pb-e"></div>
+    <div class="pbody">
+      <div class="ptop"><div class="pvar">Lavado · Tarrazú · ₡16.000/kg</div><span class="badge bg">🏔 Denominación</span></div>
+      <div class="pname">Catuaí Rojo Lavado <em>Tarrazú</em></div>
+      <div class="pnotes"><span class="fn">Naranja</span><span class="fn">Jazmín</span><span class="fn">Chocolate negro</span></div>
+      <div class="pdiv"></div>
+      <div class="srow">
+        <button class="sb active" onclick="sz(this,'Catuaí Lavado Tarrazú',250,4000)">250g — ₡4.000</button>
+        <button class="sb" onclick="sz(this,'Catuaí Lavado Tarrazú',340,5440)">340g — ₡5.440</button>
+        <button class="sb" onclick="sz(this,'Catuaí Lavado Tarrazú',500,8000)">500g — ₡8.000</button>
+      </div>
+      <div class="pbot">
+        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Catuaí Lavado Tarrazú">₡4.000</div><div class="panch">Entre los mejores cafés del mundo</div></div>
+        <div class="qty-ctrl" id="qc-Catuaí_Lavado_Tarrazú"><button class="qb" onclick="decQty('Catuaí Lavado Tarrazú','250g',4000)">−</button><span class="qnum" id="qn-Catuaí_Lavado_Tarrazú">0</span><button class="qb qb-add" onclick="incQty('Catuaí Lavado Tarrazú','250g',4000)">+</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TUESTE OSCURO LAVADO -->
+  <div class="pcard" data-c="m">
+    <div class="pband pb-m"></div>
+    <div class="pbody">
+      <div class="ptop"><div class="pvar">Tueste oscuro · Brunca · ₡16.000/kg</div><span class="badge bo">🔥 Tueste intenso</span></div>
+      <div class="pname">Tueste Oscuro <em>Lavado</em></div>
+      <div class="pnotes"><span class="fn">Chocolate negro</span><span class="fn">Nuez tostada</span><span class="fn">Cuerpo pleno</span></div>
+      <div class="pdiv"></div>
+      <div class="srow">
+        <button class="sb active" onclick="sz(this,'Tueste Oscuro Lavado',250,4000)">250g — ₡4.000</button>
+        <button class="sb" onclick="sz(this,'Tueste Oscuro Lavado',340,5440)">340g — ₡5.440</button>
+        <button class="sb" onclick="sz(this,'Tueste Oscuro Lavado',500,8000)">500g — ₡8.000</button>
+      </div>
+      <div class="pbot">
+        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Tueste Oscuro Lavado">₡4.000</div><div class="panch">Perfecto para espresso y prensa francesa</div></div>
+        <div class="qty-ctrl" id="qc-Tueste_Oscuro_Lavado"><button class="qb" onclick="decQty('Tueste Oscuro Lavado','250g',4000)">−</button><span class="qnum" id="qn-Tueste_Oscuro_Lavado">0</span><button class="qb qb-add" onclick="incQty('Tueste Oscuro Lavado','250g',4000)">+</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPICA LAVADO -->
+  <div class="pcard" data-c="m">
+    <div class="pband pb-m"></div>
+    <div class="pbody">
+      <div class="ptop"><div class="pvar">Lavado · Tarrazú · ₡18.000/kg</div><span class="badge bg">🏛 Ancestral</span></div>
+      <div class="pname">Typica <em>Lavado</em></div>
+      <div class="pnotes"><span class="fn">Manzana fresca</span><span class="fn">Jazmín</span><span class="fn">Miel cruda</span><span class="fn">Sedoso</span></div>
+      <div class="pdiv"></div>
+      <div class="srow">
+        <button class="sb active" onclick="sz(this,'Typica Lavado',250,4500)">250g — ₡4.500</button>
+        <button class="sb" onclick="sz(this,'Typica Lavado',340,6120)">340g — ₡6.120</button>
+        <button class="sb" onclick="sz(this,'Typica Lavado',500,9000)">500g — ₡9.000</button>
+      </div>
+      <div class="pbot">
+        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Typica Lavado">₡4.500</div><div class="panch">Madre de todas las variedades modernas</div></div>
+        <div class="qty-ctrl" id="qc-Typica_Lavado"><button class="qb" onclick="decQty('Typica Lavado','250g',4500)">−</button><span class="qnum" id="qn-Typica_Lavado">0</span><button class="qb qb-add" onclick="incQty('Typica Lavado','250g',4500)">+</button></div>
       </div>
     </div>
   </div>
@@ -415,7 +471,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
   <div class="pcard" data-c="p">
     <div class="pband pb-p"></div>
     <div class="pbody">
-      <div class="ptop"><div class="pvar">Variedad histórica · ₡22.000/kg</div><span class="badge bo">✦ Premium</span></div>
+      <div class="ptop"><div class="pvar">Variedad histórica · Tarrazú · ₡22.000/kg</div><span class="badge bo">✦ Premium</span></div>
       <div class="pname">Bourbon</div>
       <div class="pnotes"><span class="fn">Frutas rojas</span><span class="fn">Miel</span><span class="fn">Chocolate suave</span><span class="fn">Dulzura natural</span></div>
       <div class="pdiv"></div>
@@ -426,36 +482,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pbot">
         <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Bourbon">₡5.500</div><div class="panch">Padre de casi todo el café del mundo</div></div>
-        <div class="qty-ctrl" id="qc-Bourbon">
-          <button class="qb" onclick="decQty('Bourbon','250g',5500)">−</button>
-          <span class="qnum" id="qn-Bourbon">0</span>
-          <button class="qb qb-add" onclick="incQty('Bourbon','250g',5500)">+</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- PACAMARA -->
-  <div class="pcard" data-c="p">
-    <div class="pband pb-p"></div>
-    <div class="pbody">
-      <div class="ptop"><div class="pvar">Híbrido de altura · ₡24.000/kg</div><span class="badge bl">💎 Selecto</span></div>
-      <div class="pname">Pacamara</div>
-      <div class="pnotes"><span class="fn">Chocolate amargo</span><span class="fn">Frutas tropicales</span><span class="fn">Cuerpo pleno</span></div>
-      <div class="scar"><div class="sdot"></div><div class="stxt">Grano muy grande. Producción limitada en Costa Rica.</div></div>
-      <div class="pdiv"></div>
-      <div class="srow">
-        <button class="sb active" onclick="sz(this,'Pacamara',250,6000)">250g — ₡6.000</button>
-        <button class="sb" onclick="sz(this,'Pacamara',340,8160)">340g — ₡8.160</button>
-        <button class="sb" onclick="sz(this,'Pacamara',500,12000)">500g — ₡12.000</button>
-      </div>
-      <div class="pbot">
-        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Pacamara">₡6.000</div><div class="panch">Cruce Pacas × Maragogipe</div></div>
-        <div class="qty-ctrl" id="qc-Pacamara">
-          <button class="qb" onclick="decQty('Pacamara','250g',6000)">−</button>
-          <span class="qnum" id="qn-Pacamara">0</span>
-          <button class="qb qb-add" onclick="incQty('Pacamara','250g',6000)">+</button>
-        </div>
+        <div class="qty-ctrl" id="qc-Bourbon"><button class="qb" onclick="decQty('Bourbon','250g',5500)">−</button><span class="qnum" id="qn-Bourbon">0</span><button class="qb qb-add" onclick="incQty('Bourbon','250g',5500)">+</button></div>
       </div>
     </div>
   </div>
@@ -464,10 +491,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
   <div class="pcard" data-c="p">
     <div class="pband pb-p"></div>
     <div class="pbody">
-      <div class="ptop"><div class="pvar">Variedad experimental ICAFE · ₡24.000/kg</div><span class="badge bl">🔬 Exclusivo</span></div>
+      <div class="ptop"><div class="pvar">Experimental · Tarrazú · ₡24.000/kg</div><span class="badge bl">🔬 Exclusivo</span></div>
       <div class="pname">ET<em>47</em></div>
       <div class="pnotes"><span class="fn">Floral</span><span class="fn">Bergamota</span><span class="fn">Cítrico exótico</span><span class="fn">Fruta de hueso</span></div>
-      <div class="scar"><div class="sdot"></div><div class="stxt">Lotes experimentales muy pequeños. Solo disponible por temporada.</div></div>
+      <div class="scar"><div class="sdot"></div><div class="stxt">Lotes experimentales muy pequeños. Solo por temporada.</div></div>
       <div class="pdiv"></div>
       <div class="srow">
         <button class="sb active" onclick="sz(this,'ET47',250,6000)">250g — ₡6.000</button>
@@ -476,36 +503,28 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pbot">
         <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-ET47">₡6.000</div><div class="panch">Para el verdadero conocedor</div></div>
-        <div class="qty-ctrl" id="qc-ET47">
-          <button class="qb" onclick="decQty('ET47','250g',6000)">−</button>
-          <span class="qnum" id="qn-ET47">0</span>
-          <button class="qb qb-add" onclick="incQty('ET47','250g',6000)">+</button>
-        </div>
+        <div class="qty-ctrl" id="qc-ET47"><button class="qb" onclick="decQty('ET47','250g',6000)">−</button><span class="qnum" id="qn-ET47">0</span><button class="qb qb-add" onclick="incQty('ET47','250g',6000)">+</button></div>
       </div>
     </div>
   </div>
 
-  <!-- GEISHA -->
-  <div class="pcard" data-c="u">
-    <div class="pband pb-u"></div>
+  <!-- EXCELENCIA -->
+  <div class="pcard" data-c="p">
+    <div class="pband pb-p"></div>
     <div class="pbody">
-      <div class="ptop"><div class="pvar">Ultra premium · ₡40.000/kg</div><span class="badge bu">💜 El más fino del mundo</span></div>
-      <div class="pname" style="color:var(--purple)">Geisha</div>
-      <div class="pnotes"><span class="fn">Jazmín</span><span class="fn">Bergamota</span><span class="fn">Melocotón</span><span class="fn">Té negro</span><span class="fn">Mandarina</span></div>
-      <div class="scar" style="background:#FAF5FF;border-left-color:var(--purple)"><div class="sdot" style="background:var(--purple)"></div><div class="stxt" style="color:#6B21A8">El café más premiado del mundo. Subastas internacionales a más de $100/kg.</div></div>
+      <div class="ptop"><div class="pvar">Microlote · Tarrazú · ₡24.000/kg</div><span class="badge bl">🏆 85+ SCA</span></div>
+      <div class="pname">Excelencia</div>
+      <div class="pnotes"><span class="fn">Complejo</span><span class="fn">Limpio</span><span class="fn">Final largo</span></div>
+      <div class="scar"><div class="sdot"></div><div class="stxt">Microlote curado. Disponibilidad muy limitada por cosecha.</div></div>
       <div class="pdiv"></div>
       <div class="srow">
-        <button class="sb active" onclick="sz(this,'Geisha',250,10000)" style="border-color:var(--purple);color:var(--purple);background:#FAF5FF">250g — ₡10.000</button>
-        <button class="sb" onclick="sz(this,'Geisha',340,13600)">340g — ₡13.600</button>
-        <button class="sb" onclick="sz(this,'Geisha',500,20000)">500g — ₡20.000</button>
+        <button class="sb active" onclick="sz(this,'Excelencia',250,6000)">250g — ₡6.000</button>
+        <button class="sb" onclick="sz(this,'Excelencia',340,8160)">340g — ₡8.160</button>
+        <button class="sb" onclick="sz(this,'Excelencia',500,12000)">500g — ₡12.000</button>
       </div>
       <div class="pbot">
-        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Geisha" style="color:var(--purple)">₡10.000</div><div class="panch" style="background:#FAF5FF;color:var(--purple)">Una experiencia que redefine el café</div></div>
-        <div class="qty-ctrl" id="qc-Geisha">
-          <button class="qb" onclick="decQty('Geisha','250g',10000)">−</button>
-          <span class="qnum" id="qn-Geisha">0</span>
-          <button class="qb qb-add" onclick="incQty('Geisha','250g',10000)">+</button>
-        </div>
+        <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Excelencia">₡6.000</div><div class="panch">Lo mejor que Costa Rica puede ofrecer</div></div>
+        <div class="qty-ctrl" id="qc-Excelencia"><button class="qb" onclick="decQty('Excelencia','250g',6000)">−</button><span class="qnum" id="qn-Excelencia">0</span><button class="qb qb-add" onclick="incQty('Excelencia','250g',6000)">+</button></div>
       </div>
     </div>
   </div>
@@ -666,7 +685,7 @@ function setMol(btn){ document.querySelectorAll('.mb').forEach(b=>b.classList.re
 function toggleCart(){ document.getElementById('cov').classList.toggle('show'); document.getElementById('csh').classList.toggle('show'); }
 // ── CONFIGURACIÓN ──────────────────────────────────────
 // Pegá aquí la URL de tu Google Apps Script después de implementarlo
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwZO3WSLiaKaP5SrMnfmH0GtnKpsqPU1Il-rSvb_xdUSnKy1LdfTuuDU6tMx8bLcKYqYA/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4XGi4OX7NXFQRMedTFQbZb9sHicAYI_uAi0j3b5M0LV_qP_kQPlSr6pu-tySwlYNmIA/exec';
 // ────────────────────────────────────────────────────────
 
 // Show WA preview modal
@@ -681,11 +700,16 @@ function sendWA(){
 }
 
 function buildWAMsg(notes, sub){
-  let msg = '☕ *Pedido Selah Café*\n\n';
+  const nombre = document.getElementById('cliente-nombre').value.trim();
+  let msg = '☕ *Pedido Selah Café*\n';
+  if(nombre) msg += `👤 *Cliente:* ${nombre}\n`;
+  msg += '\n';
   cart.forEach(i => { msg += `• ${i.name} (${i.size}) ×${i.qty} — ₡${(i.price*i.qty).toLocaleString('es-CR')}\n`; });
   msg += `\n*Molienda:* ${mol}`;
   msg += `\n*Total:* ₡${sub.toLocaleString('es-CR')}`;
   if(notes) msg += `\n*Notas:* ${notes}`;
+  msg += '\n\n💳 *Pago:* SINPE Móvil al 6002-3013';
+  msg += '\n_Enviá el comprobante a este mismo número._';
   msg += '\n\n_Pausa. Respira. Disfruta._ 🌿';
   return msg;
 }
@@ -716,11 +740,13 @@ async function guardarEnSheets(notes, total) {
   // Si no hay URL configurada, saltamos silenciosamente
   if (!SCRIPT_URL || SCRIPT_URL.includes('TU_SCRIPT_ID')) return;
 
+  const nombre = document.getElementById('cliente-nombre').value.trim();
   const payload = {
     items:    cart.map(i => ({ name: i.name, size: i.size, price: i.price, qty: i.qty })),
     molienda: mol,
     total:    total,
     notas:    notes,
+    cliente:  nombre,
     fecha:    new Date().toISOString()
   };
 
