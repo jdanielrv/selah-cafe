@@ -218,6 +218,88 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
 .minfo{display:flex;align-items:center;gap:8px;margin-top:12px;padding:10px 14px;background:#fff;border-radius:10px;border:1px solid var(--line)}
 .minfo-icon{font-size:16px;flex-shrink:0}
 .minfo-txt{font-size:11px;color:var(--ink2);line-height:1.4}
+
+/* Per-product molienda */
+.pmol-wrap { margin-bottom:12px; }
+.pmol-lbl { font-size:9px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--ink3); margin-bottom:6px; }
+.pmol-row { display:flex; gap:5px; flex-wrap:wrap; }
+.pmol-btn {
+  font-size:10px; font-weight:400; padding:5px 10px;
+  border-radius:8px; border:1.5px solid var(--line);
+  color:var(--ink2); background:var(--s2);
+  cursor:pointer; transition:all .15s;
+}
+.pmol-btn.active {
+  border-color:var(--green); color:var(--green);
+  background:#F0FDF4; font-weight:600;
+}
+
+/* Info icon button */
+.info-icon-btn {
+  width:28px; height:28px; border-radius:8px;
+  background:var(--s2); border:1.5px solid var(--line);
+  color:var(--ink3); font-size:13px;
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:all .15s; flex-shrink:0;
+  margin-left:6px;
+}
+.info-icon-btn:active { transform:scale(.9); }
+
+/* Info detail modal */
+.info-modal-ov {
+  position:fixed; inset:0; z-index:400;
+  background:rgba(26,18,8,.55); backdrop-filter:blur(6px);
+  opacity:0; pointer-events:none; transition:opacity .3s;
+  display:flex; align-items:flex-end; justify-content:center;
+}
+.info-modal-ov.show { opacity:1; pointer-events:all; }
+.info-modal-box {
+  width:100%; max-width:430px;
+  background:var(--bg); border-radius:24px 24px 0 0;
+  border-top:1px solid var(--line);
+  padding:0 0 40px;
+  max-height:88vh; overflow-y:auto;
+  transform:translateY(100%);
+  transition:transform .38s cubic-bezier(.32,.72,0,1);
+}
+.info-modal-ov.show .info-modal-box { transform:translateY(0); }
+.im-handle { width:36px; height:4px; border-radius:2px; background:var(--line); margin:12px auto; }
+.im-header {
+  padding:0 18px 14px;
+  display:flex; align-items:flex-start; justify-content:space-between;
+  border-bottom:1px solid var(--line); gap:12px;
+}
+.im-titles { flex:1; }
+.im-tag { font-size:9px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:var(--ink3); margin-bottom:4px; }
+.im-name { font-family:'Fraunces',serif; font-size:24px; font-weight:800; color:var(--ink); line-height:1.1; }
+.im-close { width:34px; height:34px; border-radius:10px; background:var(--s2); border:none; color:var(--ink2); font-size:15px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.im-body { padding:16px 18px; }
+.im-section-lbl { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--green); margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+.im-section-lbl::after { content:''; flex:1; height:1px; background:var(--line); }
+.im-desc { font-size:13px; font-weight:400; color:var(--ink2); line-height:1.75; margin-bottom:16px; }
+.im-notes { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px; }
+.im-note { font-size:11px; font-weight:500; color:var(--green); background:#F0FDF4; border:1px solid rgba(45,106,79,.2); border-radius:20px; padding:4px 12px; }
+.im-methods { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:8px; }
+.im-method {
+  font-size:11px; font-weight:500;
+  padding:6px 14px; border-radius:20px;
+  background:var(--surface); border:1.5px solid var(--line);
+  color:var(--ink2);
+}
+.im-method.best {
+  background:var(--green); border-color:var(--green);
+  color:#fff; font-weight:600;
+}
+.im-origin-row {
+  display:flex; gap:10px; margin-top:16px;
+}
+.im-origin-card {
+  flex:1; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; padding:10px 12px; text-align:center;
+}
+.im-oc-icon { font-size:18px; margin-bottom:4px; }
+.im-oc-lbl { font-size:8.5px; font-weight:400; color:var(--ink3); text-transform:uppercase; letter-spacing:1px; margin-bottom:2px; }
+.im-oc-val { font-size:12px; font-weight:600; color:var(--ink); }
 </style>
 </head>
 <body>
@@ -281,7 +363,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       <div class="srow"><button class="sb active" onclick="sz(this,'Tradicional',500,4500)">500g — ₡4.500</button></div>
       <div class="pbot">
         <div class="pbl"><div class="plbl">Precio</div><div class="pmain" id="pr-Tradicional">₡4.500</div><div class="panch">Solo presentación 500g</div></div>
+        <div class="pmol-wrap">
+          <div class="pmol-lbl">Molienda</div>
+          <div class="pmol-row" id="pmol-Tradicional">
+            <button class="pmol-btn active" onclick="setPmol(this,'Tradicional')">En grano</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Tradicional')">Molido grueso</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Tradicional')">Molido medio</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Tradicional')">Molido fino</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
         <div class="qty-ctrl" id="qc-Tradicional"><button class="qb" onclick="decQty('Tradicional','500g',4500)">−</button><span class="qnum" id="qn-Tradicional">0</span><button class="qb qb-add" onclick="incQty('Tradicional','500g',4500)">+</button></div>
+        <button class="info-icon-btn" onclick="showInfo('Tradicional')">ℹ</button>
+        </div>
       </div>
     </div>
   </div>
@@ -302,7 +396,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pbot">
         <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Peaberry">₡4.000</div><div class="panch">Grano por grano, seleccionado a mano</div></div>
+        <div class="pmol-wrap">
+          <div class="pmol-lbl">Molienda</div>
+          <div class="pmol-row" id="pmol-Peaberry">
+            <button class="pmol-btn active" onclick="setPmol(this,'Peaberry')">En grano</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Peaberry')">Molido grueso</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Peaberry')">Molido medio</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Peaberry')">Molido fino</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
         <div class="qty-ctrl" id="qc-Peaberry"><button class="qb" onclick="decQty('Peaberry','250g',4000)">−</button><span class="qnum" id="qn-Peaberry">0</span><button class="qb qb-add" onclick="incQty('Peaberry','250g',4000)">+</button></div>
+        <button class="info-icon-btn" onclick="showInfo('Peaberry')">ℹ</button>
+        </div>
       </div>
     </div>
   </div>
@@ -362,7 +468,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pbot">
         <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-H1 Miel">₡5.000</div><div class="panch">Innovación costarricense, sabor elegante</div></div>
+        <div class="pmol-wrap">
+          <div class="pmol-lbl">Molienda</div>
+          <div class="pmol-row" id="pmol-H1_Miel">
+            <button class="pmol-btn active" onclick="setPmol(this,'H1 Miel')">En grano</button>
+            <button class="pmol-btn" onclick="setPmol(this,'H1 Miel')">Molido grueso</button>
+            <button class="pmol-btn" onclick="setPmol(this,'H1 Miel')">Molido medio</button>
+            <button class="pmol-btn" onclick="setPmol(this,'H1 Miel')">Molido fino</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
         <div class="qty-ctrl" id="qc-H1_Miel"><button class="qb" onclick="decQty('H1 Miel','250g',5000)">−</button><span class="qnum" id="qn-H1_Miel">0</span><button class="qb qb-add" onclick="incQty('H1 Miel','250g',5000)">+</button></div>
+        <button class="info-icon-btn" onclick="showInfo('H1 Miel')">ℹ</button>
+        </div>
       </div>
     </div>
   </div>
@@ -382,7 +500,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pbot">
         <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Centroamericano Miel">₡5.000</div><div class="panch">Perfecto para el día a día</div></div>
+        <div class="pmol-wrap">
+          <div class="pmol-lbl">Molienda</div>
+          <div class="pmol-row" id="pmol-Centroamericano_Miel">
+            <button class="pmol-btn active" onclick="setPmol(this,'Centroamericano Miel')">En grano</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Centroamericano Miel')">Molido grueso</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Centroamericano Miel')">Molido medio</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Centroamericano Miel')">Molido fino</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
         <div class="qty-ctrl" id="qc-Centroamericano_Miel"><button class="qb" onclick="decQty('Centroamericano Miel','250g',5000)">−</button><span class="qnum" id="qn-Centroamericano_Miel">0</span><button class="qb qb-add" onclick="incQty('Centroamericano Miel','250g',5000)">+</button></div>
+        <button class="info-icon-btn" onclick="showInfo('Centroamericano Miel')">ℹ</button>
+        </div>
       </div>
     </div>
   </div>
@@ -442,7 +572,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pbot">
         <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Tueste Oscuro Lavado">₡4.000</div><div class="panch">Perfecto para espresso y prensa francesa</div></div>
+        <div class="pmol-wrap">
+          <div class="pmol-lbl">Molienda</div>
+          <div class="pmol-row" id="pmol-Tueste_Oscuro_Lavado">
+            <button class="pmol-btn active" onclick="setPmol(this,'Tueste Oscuro Lavado')">En grano</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Tueste Oscuro Lavado')">Molido grueso</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Tueste Oscuro Lavado')">Molido medio</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Tueste Oscuro Lavado')">Molido fino</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
         <div class="qty-ctrl" id="qc-Tueste_Oscuro_Lavado"><button class="qb" onclick="decQty('Tueste Oscuro Lavado','250g',4000)">−</button><span class="qnum" id="qn-Tueste_Oscuro_Lavado">0</span><button class="qb qb-add" onclick="incQty('Tueste Oscuro Lavado','250g',4000)">+</button></div>
+        <button class="info-icon-btn" onclick="showInfo('Tueste Oscuro Lavado')">ℹ</button>
+        </div>
       </div>
     </div>
   </div>
@@ -462,7 +604,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pbot">
         <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Typica Lavado">₡4.500</div><div class="panch">Madre de todas las variedades modernas</div></div>
+        <div class="pmol-wrap">
+          <div class="pmol-lbl">Molienda</div>
+          <div class="pmol-row" id="pmol-Typica_Lavado">
+            <button class="pmol-btn active" onclick="setPmol(this,'Typica Lavado')">En grano</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Typica Lavado')">Molido grueso</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Typica Lavado')">Molido medio</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Typica Lavado')">Molido fino</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
         <div class="qty-ctrl" id="qc-Typica_Lavado"><button class="qb" onclick="decQty('Typica Lavado','250g',4500)">−</button><span class="qnum" id="qn-Typica_Lavado">0</span><button class="qb qb-add" onclick="incQty('Typica Lavado','250g',4500)">+</button></div>
+        <button class="info-icon-btn" onclick="showInfo('Typica Lavado')">ℹ</button>
+        </div>
       </div>
     </div>
   </div>
@@ -482,7 +636,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pbot">
         <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Bourbon">₡5.500</div><div class="panch">Padre de casi todo el café del mundo</div></div>
+        <div class="pmol-wrap">
+          <div class="pmol-lbl">Molienda</div>
+          <div class="pmol-row" id="pmol-Bourbon">
+            <button class="pmol-btn active" onclick="setPmol(this,'Bourbon')">En grano</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Bourbon')">Molido grueso</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Bourbon')">Molido medio</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Bourbon')">Molido fino</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
         <div class="qty-ctrl" id="qc-Bourbon"><button class="qb" onclick="decQty('Bourbon','250g',5500)">−</button><span class="qnum" id="qn-Bourbon">0</span><button class="qb qb-add" onclick="incQty('Bourbon','250g',5500)">+</button></div>
+        <button class="info-icon-btn" onclick="showInfo('Bourbon')">ℹ</button>
+        </div>
       </div>
     </div>
   </div>
@@ -503,7 +669,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pbot">
         <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-ET47">₡6.000</div><div class="panch">Para el verdadero conocedor</div></div>
+        <div class="pmol-wrap">
+          <div class="pmol-lbl">Molienda</div>
+          <div class="pmol-row" id="pmol-ET47">
+            <button class="pmol-btn active" onclick="setPmol(this,'ET47')">En grano</button>
+            <button class="pmol-btn" onclick="setPmol(this,'ET47')">Molido grueso</button>
+            <button class="pmol-btn" onclick="setPmol(this,'ET47')">Molido medio</button>
+            <button class="pmol-btn" onclick="setPmol(this,'ET47')">Molido fino</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
         <div class="qty-ctrl" id="qc-ET47"><button class="qb" onclick="decQty('ET47','250g',6000)">−</button><span class="qnum" id="qn-ET47">0</span><button class="qb qb-add" onclick="incQty('ET47','250g',6000)">+</button></div>
+        <button class="info-icon-btn" onclick="showInfo('ET47')">ℹ</button>
+        </div>
       </div>
     </div>
   </div>
@@ -524,7 +702,19 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pbot">
         <div class="pbl"><div class="plbl">Precio seleccionado</div><div class="pmain" id="pr-Excelencia">₡6.000</div><div class="panch">Lo mejor que Costa Rica puede ofrecer</div></div>
+        <div class="pmol-wrap">
+          <div class="pmol-lbl">Molienda</div>
+          <div class="pmol-row" id="pmol-Excelencia">
+            <button class="pmol-btn active" onclick="setPmol(this,'Excelencia')">En grano</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Excelencia')">Molido grueso</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Excelencia')">Molido medio</button>
+            <button class="pmol-btn" onclick="setPmol(this,'Excelencia')">Molido fino</button>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
         <div class="qty-ctrl" id="qc-Excelencia"><button class="qb" onclick="decQty('Excelencia','250g',6000)">−</button><span class="qnum" id="qn-Excelencia">0</span><button class="qb qb-add" onclick="incQty('Excelencia','250g',6000)">+</button></div>
+        <button class="info-icon-btn" onclick="showInfo('Excelencia')">ℹ</button>
+        </div>
       </div>
     </div>
   </div>
@@ -570,7 +760,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       <div class="ctr cttt"><span class="ctl">Total</span><span class="ctv" id="totv">₡0</span></div>
     </div>
     <div class="molw">
-      <div class="moll">¿Cómo lo querés?</div>
+      <div class="moll">Molienda predeterminada (si no seleccionaste arriba)</div>
       <div class="molg">
         <button class="mb active" onclick="setMol(this)">En grano</button>
         <button class="mb" onclick="setMol(this)">Molido grueso</button>
@@ -604,32 +794,34 @@ function sz(btn,prod,g,price){
   const pr=document.getElementById('pr-'+prod);
   if(pr) pr.textContent='₡'+price.toLocaleString('es-CR');
   // Update qty controls to reference new size+price
-  const safeId=prod.replace(/ /g,'_').replace(/'/g,'');
+  const safeId=getSafeId(prod);
   const qc=document.getElementById('qc-'+safeId);
   if(qc){
     qc.dataset.size=sl;
     qc.dataset.price=price;
-    // reset displayed qty to match cart for this new size
-    const key=prod+'|'+sl;
-    const ex=cart.find(i=>i.key===key);
+    // reset displayed qty to total across all moliendas for this size
+    const totalQty=cart.filter(i=>i.name===prod&&i.size===sl).reduce((s,i)=>s+i.qty,0);
     const qn=document.getElementById('qn-'+safeId);
-    if(qn) qn.textContent=ex?ex.qty:0;
+    if(qn) qn.textContent=totalQty;
   }
 }
 
 function incQty(name,size,price){
-  // Check if size was changed via selector
-  const safeId=name.replace(/ /g,'_').replace(/'/g,'');
+  const safeId=getSafeId(name);
   const qc=document.getElementById('qc-'+safeId);
   if(qc && qc.dataset.size) size=qc.dataset.size;
   if(qc && qc.dataset.price) price=parseInt(qc.dataset.price);
 
-  const key=name+'|'+size;
+  const molienda=getPmol(name);
+  const key=name+'|'+size+'|'+molienda;
   const ex=cart.find(i=>i.key===key);
-  if(ex) ex.qty++; else cart.push({key,name,size,price,qty:1});
+  if(ex){ ex.qty++; }
+  else cart.push({key,name,size,price,qty:1,molienda});
 
+  // Show total qty across ALL moliendas for this product+size
+  const totalQty=cart.filter(i=>i.name===name&&i.size===size).reduce((s,i)=>s+i.qty,0);
   const qn=document.getElementById('qn-'+safeId);
-  if(qn) qn.textContent=cart.find(i=>i.key===key).qty;
+  if(qn) qn.textContent=totalQty;
   upd();
 }
 
@@ -652,11 +844,15 @@ function decQty(name,size,price){
 function rm(key){
   const item=cart.find(i=>i.key===key);
   if(item){
-    const safeId=item.name.replace(/ /g,'_').replace(/'/g,'');
+    const safeId=getSafeId(item.name);
+    cart=cart.filter(i=>i.key!==key);
+    // Recalculate total qty for this product across remaining moliendas
+    const totalQty=cart.filter(i=>i.name===item.name&&i.size===item.size).reduce((s,i)=>s+i.qty,0);
     const qn=document.getElementById('qn-'+safeId);
-    if(qn) qn.textContent=0;
+    if(qn) qn.textContent=totalQty;
+  } else {
+    cart=cart.filter(i=>i.key!==key);
   }
-  cart=cart.filter(i=>i.key!==key);
   upd();
 }
 
@@ -685,10 +881,187 @@ function setMol(btn){ document.querySelectorAll('.mb').forEach(b=>b.classList.re
 function toggleCart(){ document.getElementById('cov').classList.toggle('show'); document.getElementById('csh').classList.toggle('show'); }
 // ── CONFIGURACIÓN ──────────────────────────────────────
 // Pegá aquí la URL de tu Google Apps Script después de implementarlo
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz4XGi4OX7NXFQRMedTFQbZb9sHicAYI_uAi0j3b5M0LV_qP_kQPlSr6pu-tySwlYNmIA/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxDItH2aGIKnWdTqxw_LTDWrLI64HQEorONVAGsV7-ViL9ECgXUWjxQiFUThP5Yq1EGmg/exec';
 // ────────────────────────────────────────────────────────
 
 // Show WA preview modal
+const VARIETIES = {
+  "Tradicional": {
+    tag: "Clásico · Tarrazú",
+    region: "Tarrazú",
+    process: "Lavado",
+    altitude: "1.200–1.900 msnm",
+    desc: "El café más representativo de Costa Rica. Un perfil suave y equilibrado, perfecto para el día a día. El proceso lavado resalta su limpieza y consistencia taza a taza.",
+    notes: ["Chocolate suave", "Caramelo", "Nuez", "Cuerpo medio"],
+    best: ["Chorreador", "V60"],
+    also: ["Prensa francesa", "Automática"]
+  },
+  "Peaberry": {
+    tag: "Variedad especial · Tarrazú",
+    region: "Tarrazú",
+    process: "Lavado",
+    altitude: "1.200–1.900 msnm",
+    desc: "Una mutación natural donde solo un grano se desarrolla dentro de la cereza, absorbiendo todos sus nutrientes. Resultado: sabor más concentrado, acidez más viva y mayor dulzura. Solo el 5% de cada cosecha produce Peaberry.",
+    notes: ["Frutas tropicales", "Miel", "Cacao", "Acidez brillante"],
+    best: ["Pour Over", "Chemex"],
+    also: ["AeroPress", "Moka"]
+  },
+  "Catuaí Red Honey": {
+    tag: "Honey · Tarrazú",
+    region: "Tarrazú",
+    process: "Red Honey",
+    altitude: "1.200–1.900 msnm",
+    desc: "El proceso Red Honey deja una capa media de mucílago sobre el grano durante el secado, creando un puente entre la claridad del lavado y la riqueza del natural. El resultado es una taza dulce y afrutada con gran estructura.",
+    notes: ["Durazno maduro", "Azúcar morena", "Chocolate con leche"],
+    best: ["Chorreador", "V60"],
+    also: ["AeroPress", "Chemex"]
+  },
+  "Catuaí Black Honey": {
+    tag: "Honey · Tarrazú",
+    region: "Tarrazú",
+    process: "Black Honey",
+    altitude: "1.200–1.900 msnm",
+    desc: "El proceso más intenso de la familia honey: el grano se seca con casi todo su mucílago, generando la mayor transferencia posible de azúcares al grano. La taza más dulce y afrutada de nuestra colección.",
+    notes: ["Fruta tropical", "Higo", "Miel oscura", "Melaza"],
+    best: ["French Press", "Chemex"],
+    also: ["Cold Brew", "AeroPress"]
+  },
+  "H1 Miel": {
+    tag: "Híbrido · Naranjo",
+    region: "Naranjo, Alajuela",
+    process: "Honey",
+    altitude: "900–1.500 msnm",
+    desc: "H1 es un híbrido desarrollado por el ICAFE para resistir la roya sin sacrificar calidad. En proceso honey sorprende con elegancia: un perfil limpio y dulce que demuestra que la innovación y la tradición pueden coexistir.",
+    notes: ["Manzana caramelizada", "Albaricoque seco", "Azúcar morena"],
+    best: ["Chorreador", "V60"],
+    also: ["Drip automática", "AeroPress"]
+  },
+  "Centroamericano Miel": {
+    tag: "Blend · Tarrazú",
+    region: "Tarrazú",
+    process: "Honey",
+    altitude: "1.000–1.600 msnm",
+    desc: "Un blend cuidadoso de variedades costarricenses procesadas con honey, diseñado para ser el café más versátil y accesible de la colección. Consistente, cálido y perfecto para el consumo diario.",
+    notes: ["Toffee", "Fruta de hueso", "Canela", "Cuerpo medio"],
+    best: ["Chorreador", "Automática"],
+    also: ["French Press", "V60"]
+  },
+  "Catuaí Lavado Naranjo": {
+    tag: "Lavado · Naranjo",
+    region: "Naranjo, Alajuela",
+    process: "Lavado",
+    altitude: "900–1.500 msnm",
+    desc: "El Catuaí Rojo en su expresión más pura: proceso lavado que elimina toda influencia externa y deja hablar al terroir del Valle Occidental. Limpio, brillante y honesto.",
+    notes: ["Limón", "Chocolate blanco", "Almendra", "Acidez cítrica"],
+    best: ["V60", "Chemex"],
+    also: ["Kalita Wave", "AeroPress"]
+  },
+  "Catuaí Lavado Tarrazú": {
+    tag: "Lavado · Tarrazú",
+    region: "Tarrazú, Los Santos",
+    process: "Lavado",
+    altitude: "1.200–1.900 msnm",
+    desc: "Tarrazú es la región cafetalera más famosa de Costa Rica. Este Catuaí Rojo lavado expresa fielmente el terroir volcánico de Los Santos: acidez viva, floral y complejo. Considerado entre los mejores del mundo.",
+    notes: ["Naranja", "Jazmín", "Chocolate negro", "Acidez viva"],
+    best: ["Chemex", "Pour Over"],
+    also: ["Espresso", "Sifón"]
+  },
+  "Tueste Oscuro Lavado": {
+    tag: "Tueste oscuro · Brunca",
+    region: "Brunca, sur de CR",
+    process: "Lavado",
+    altitude: "600–1.200 msnm",
+    desc: "Un café lavado llevado a tueste oscuro — una categoría raramente bien ejecutada en especialidad. La calidad del grano de Brunca aguanta el calor y produce una taza intensa sin amargura excesiva.",
+    notes: ["Chocolate negro", "Nuez tostada", "Cedar", "Cuerpo pleno"],
+    best: ["Espresso", "Moka"],
+    also: ["French Press", "Automática"]
+  },
+  "Typica Lavado": {
+    tag: "Variedad histórica · Tarrazú",
+    region: "Tarrazú",
+    process: "Lavado",
+    altitude: "1.200–1.900 msnm",
+    desc: "La Typica es la abuela del café moderno — traída a Costa Rica en el siglo XVIII. El proceso lavado revela su elegancia característica: transparente, floral y sedosa. Escasa por naturaleza, cada bolsa es un privilegio.",
+    notes: ["Manzana verde", "Jazmín", "Miel cruda", "Sedoso"],
+    best: ["Chemex", "V60"],
+    also: ["Sifón", "Origami"]
+  },
+  "Bourbon": {
+    tag: "Variedad histórica · Tarrazú",
+    region: "Tarrazú",
+    process: "Lavado / Natural",
+    altitude: "1.200–1.900 msnm",
+    desc: "Una de las variedades más antiguas y respetadas del mundo — antepasado genético de decenas de variedades modernas. Célebre por su dulzura natural extraordinaria y elegancia en taza. Un must para cualquier amante del café.",
+    notes: ["Frutas rojas", "Caramelo", "Chocolate suave", "Dulzura natural"],
+    best: ["V60", "Espresso"],
+    also: ["French Press", "Chemex"]
+  },
+  "ET47": {
+    tag: "Experimental · Tarrazú",
+    region: "Tarrazú",
+    process: "Lavado / Natural / Honey",
+    altitude: "1.000–1.600 msnm",
+    desc: "Variedad experimental del programa de mejoramiento genético del ICAFE. Disponible en lotes muy pequeños y solo por temporada. Perfil exótico y sorprendente — cada cosecha es diferente, haciendo cada bolsa irrepetible.",
+    notes: ["Jazmín", "Bergamota", "Lichi", "Limón Meyer"],
+    best: ["Chemex", "V60"],
+    also: ["AeroPress invertido"]
+  },
+  "Excelencia": {
+    tag: "Microlote · Tarrazú",
+    region: "Tarrazú",
+    process: "Variable por cosecha",
+    altitude: "1.400–1.900 msnm",
+    desc: "La selección más fina del catálogo de Selah Café — un microlote curado con puntaje SCA superior a 85 puntos. Notas variables por cosecha, pero siempre con complejidad, claridad y un final que te hace detenerte. Para los que buscan lo mejor.",
+    notes: ["Complejo", "Limpio", "Floral", "Final largo"],
+    best: ["Chemex", "Sifón"],
+    also: ["V60", "Pour Over"]
+  },
+};
+
+
+function showInfo(id) {
+  const v = VARIETIES[id];
+  if (!v) return;
+  document.getElementById('im-tag').textContent = v.tag;
+  document.getElementById('im-name').textContent = id;
+  document.getElementById('im-body').innerHTML = `
+    <div class="im-section-lbl">Notas de sabor</div>
+    <div class="im-notes">${v.notes.map(n => `<span class="im-note">${n}</span>`).join('')}</div>
+
+    <div class="im-section-lbl">Descripción</div>
+    <p class="im-desc">${v.desc}</p>
+
+    <div class="im-section-lbl">Método de preparación</div>
+    <div class="im-methods">
+      ${v.best.map(m => `<span class="im-method best">${m}</span>`).join('')}
+      ${v.also.map(m => `<span class="im-method">${m}</span>`).join('')}
+    </div>
+    <p style="font-size:10px;color:var(--ink3);margin-top:6px;">✦ Métodos en verde = recomendados</p>
+
+    <div class="im-origin-row">
+      <div class="im-origin-card">
+        <div class="im-oc-icon">🌋</div>
+        <div class="im-oc-lbl">Región</div>
+        <div class="im-oc-val">${v.region}</div>
+      </div>
+      <div class="im-origin-card">
+        <div class="im-oc-icon">⚙️</div>
+        <div class="im-oc-lbl">Proceso</div>
+        <div class="im-oc-val">${v.process}</div>
+      </div>
+      <div class="im-origin-card">
+        <div class="im-oc-icon">⛰️</div>
+        <div class="im-oc-lbl">Altitud</div>
+        <div class="im-oc-val">${v.altitude}</div>
+      </div>
+    </div>
+  `;
+  document.getElementById('infoModal').classList.add('show');
+}
+function closeInfo() {
+  document.getElementById('infoModal').classList.remove('show');
+}
+
 function sendWA(){
   if(!cart.length) return;
   const notes = document.getElementById('notas').value;
@@ -704,8 +1077,10 @@ function buildWAMsg(notes, sub){
   let msg = '☕ *Pedido Selah Café*\n';
   if(nombre) msg += `👤 *Cliente:* ${nombre}\n`;
   msg += '\n';
-  cart.forEach(i => { msg += `• ${i.name} (${i.size}) ×${i.qty} — ₡${(i.price*i.qty).toLocaleString('es-CR')}\n`; });
-  msg += `\n*Molienda:* ${mol}`;
+  cart.forEach(i => {
+    const mol = i.molienda || 'En grano';
+    msg += `• ${i.name} (${i.size} · ${mol}) ×${i.qty} — ₡${(i.price*i.qty).toLocaleString('es-CR')}\n`;
+  });
   msg += `\n*Total:* ₡${sub.toLocaleString('es-CR')}`;
   if(notes) msg += `\n*Notas:* ${notes}`;
   msg += '\n\n💳 *Pago:* SINPE Móvil al 6002-3013';
@@ -742,7 +1117,7 @@ async function guardarEnSheets(notes, total) {
 
   const nombre = document.getElementById('cliente-nombre').value.trim();
   const payload = {
-    items:    cart.map(i => ({ name: i.name, size: i.size, price: i.price, qty: i.qty })),
+    items:    cart.map(i => ({ name: i.name, size: i.size, price: i.price, qty: i.qty, molienda: i.molienda||'En grano' })),
     molienda: mol,
     total:    total,
     notas:    notes,
@@ -764,6 +1139,24 @@ async function guardarEnSheets(notes, total) {
   }
 }
 </script>
+
+
+<!-- INFO VARIETY MODAL -->
+<div class="info-modal-ov" id="infoModal" onclick="if(event.target===this)closeInfo()">
+  <div class="info-modal-box">
+    <div class="im-handle"></div>
+    <div class="im-header">
+      <div class="im-titles">
+        <div class="im-tag" id="im-tag">Variedad</div>
+        <div class="im-name" id="im-name">Nombre</div>
+      </div>
+      <button class="im-close" onclick="closeInfo()">✕</button>
+    </div>
+    <div class="im-body" id="im-body">
+      <!-- filled by JS -->
+    </div>
+  </div>
+</div>
 
 <!-- WA PREVIEW MODAL -->
 <div class="modal-ov" id="wa-modal" onclick="if(event.target===this)closeModal()">
