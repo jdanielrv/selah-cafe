@@ -175,8 +175,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
 .molw{margin:14px 18px 0}
 .moll{font-size:11px;font-weight:600;color:var(--ink2);margin-bottom:8px}
 .molg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.mb{padding:10px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);font-size:11px;font-weight:500;color:var(--ink2);cursor:pointer;transition:all .15s;text-align:center}
-.mb.active{border-color:var(--green);color:var(--green);background:#F0FDF4;font-weight:600}
+
 .notw{margin:12px 18px 0}
 .notl{font-size:11px;font-weight:600;color:var(--ink2);margin-bottom:8px}
 .noti{width:100%;padding:12px 14px;background:var(--surface);border:1.5px solid var(--line);border-radius:12px;color:var(--ink);font-family:'DM Sans',sans-serif;font-size:13px;resize:none;outline:none;height:76px;transition:border-color .2s}
@@ -897,15 +896,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       <div class="ctr"><span class="ctl">Envío</span><span class="ctv">A coordinar por WhatsApp</span></div>
       <div class="ctr cttt"><span class="ctl">Total</span><span class="ctv" id="totv">₡0</span></div>
     </div>
-    <div class="molw">
-      <div class="moll">Molienda predeterminada (si no seleccionaste arriba)</div>
-      <div class="molg">
-        <button class="mb active" onclick="setMol(this)">En grano</button>
-        <button class="mb" onclick="setMol(this)">Molido grueso</button>
-        <button class="mb" onclick="setMol(this)">Molido medio</button>
-        <button class="mb" onclick="setMol(this)">Molido fino</button>
-      </div>
-    </div>
+
     <div class="notw"><div class="notl">Notas del pedido (dirección, hora, etc.)</div><textarea class="noti" id="notas" placeholder="Ej: Entrega en Liberia centro, preferiblemente en la tarde..."></textarea></div>
     <button class="wacta" onclick="sendWA()">
       <div class="wal"><div class="waiw">💬</div><div><div class="was">Guardar pedido y enviar por</div><div class="wab">WhatsApp</div></div></div>
@@ -915,7 +906,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
 </div>
 
 <script>
-let cart=[], mol='En grano';
+let cart=[];
 
 function filter(c,btn){
   document.querySelectorAll('.fp').forEach(p=>p.classList.remove('active'));
@@ -1031,7 +1022,7 @@ function upd(){
   it.innerHTML=cart.map(i=>`
     <div class="ci">
       <div class="cidot"></div>
-      <div class="cii"><div class="cin">${i.name}</div><div class="cid">${i.size} · cantidad: ${i.qty}</div></div>
+      <div class="cii"><div class="cin">${i.name}</div><div class="cid">${i.size} · <span style="color:var(--green);font-weight:600">${i.molienda||'En grano'}</span> · ×${i.qty}</div></div>
       <div class="cip">₡${(i.price*i.qty).toLocaleString('es-CR')}</div>
       <div class="cidl" onclick="rm('${i.key}')">✕</div>
     </div>`).join('');
