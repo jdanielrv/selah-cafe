@@ -601,7 +601,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pmol-wrap">
         <div class="pmol-lbl">Molienda</div>
-        <div class="pmol-row" id="pmol-Catuaí_Lavado_Naranjo">
+        <div class="pmol-row" id="pmol-Catuai_Lavado_Naranjo">
           <button class="pmol-btn active" onclick="setPmol(this,'Catuaí Lavado Naranjo')">En grano</button>
           <button class="pmol-btn" onclick="setPmol(this,'Catuaí Lavado Naranjo')">Molido grueso</button>
           <button class="pmol-btn" onclick="setPmol(this,'Catuaí Lavado Naranjo')">Molido medio</button>
@@ -615,9 +615,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
           <div class="panch">Limpio, brillante y honesto</div>
         </div>
         <div style="display:flex;align-items:center;gap:6px;">
-          <div class="qty-ctrl" id="qc-Catuaí_Lavado_Naranjo">
+          <div class="qty-ctrl" id="qc-Catuai_Lavado_Naranjo">
             <button class="qb" onclick="decQty('Catuaí Lavado Naranjo','250g',4000)">−</button>
-            <span class="qnum" id="qn-Catuaí_Lavado_Naranjo">0</span>
+            <span class="qnum" id="qn-Catuai_Lavado_Naranjo">0</span>
             <button class="qb qb-add" onclick="incQty('Catuaí Lavado Naranjo','250g',4000)">+</button>
           </div>
           <button class="info-icon-btn" onclick="showInfo('Catuaí Lavado Naranjo')">ℹ</button>
@@ -640,7 +640,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
       </div>
       <div class="pmol-wrap">
         <div class="pmol-lbl">Molienda</div>
-        <div class="pmol-row" id="pmol-Catuaí_Lavado_Tarrazú">
+        <div class="pmol-row" id="pmol-Catuai_Lavado_Tarrazu">
           <button class="pmol-btn active" onclick="setPmol(this,'Catuaí Lavado Tarrazú')">En grano</button>
           <button class="pmol-btn" onclick="setPmol(this,'Catuaí Lavado Tarrazú')">Molido grueso</button>
           <button class="pmol-btn" onclick="setPmol(this,'Catuaí Lavado Tarrazú')">Molido medio</button>
@@ -654,9 +654,9 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-
           <div class="panch">Entre los mejores cafés del mundo</div>
         </div>
         <div style="display:flex;align-items:center;gap:6px;">
-          <div class="qty-ctrl" id="qc-Catuaí_Lavado_Tarrazú">
+          <div class="qty-ctrl" id="qc-Catuai_Lavado_Tarrazu">
             <button class="qb" onclick="decQty('Catuaí Lavado Tarrazú','250g',4000)">−</button>
-            <span class="qnum" id="qn-Catuaí_Lavado_Tarrazú">0</span>
+            <span class="qnum" id="qn-Catuai_Lavado_Tarrazu">0</span>
             <button class="qb qb-add" onclick="incQty('Catuaí Lavado Tarrazú','250g',4000)">+</button>
           </div>
           <button class="info-icon-btn" onclick="showInfo('Catuaí Lavado Tarrazú')">ℹ</button>
@@ -959,7 +959,7 @@ function setPmol(btn, name){
   const row=document.getElementById('pmol-'+safeId);
   if(row) row.querySelectorAll('.pmol-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  // No modificar ítems existentes en el carrito — cada molienda es un ítem independiente
+  // Cada molienda es un ítem independiente en el carrito — no modificar ítems existentes
 }
 
 function sz(btn,prod,g,price){
