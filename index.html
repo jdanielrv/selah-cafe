@@ -959,12 +959,7 @@ function setPmol(btn, name){
   const row=document.getElementById('pmol-'+safeId);
   if(row) row.querySelectorAll('.pmol-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  // Update molienda on any matching cart items
-  const qc=document.getElementById('qc-'+safeId);
-  if(qc && qc.dataset.size){
-    const size=qc.dataset.size;
-    cart.filter(i=>i.name===name&&i.size===size).forEach(i=>i.molienda=btn.textContent);
-  }
+  // No modificar ítems existentes en el carrito — cada molienda es un ítem independiente
 }
 
 function sz(btn,prod,g,price){
@@ -1006,18 +1001,20 @@ function incQty(name,size,price){
 }
 
 function decQty(name,size,price){
-  const safeId=name.replace(/ /g,'_').replace(/'/g,'');
+  const safeId=getSafeId(name);
   const qc=document.getElementById('qc-'+safeId);
   if(qc && qc.dataset.size) size=qc.dataset.size;
 
-  const key=name+'|'+size;
+  const molienda=getPmol(name);
+  const key=name+'|'+size+'|'+molienda;
   const ex=cart.find(i=>i.key===key);
   if(!ex||ex.qty===0) return;
   ex.qty--;
   if(ex.qty===0) cart=cart.filter(i=>i.key!==key);
 
+  const totalQty=cart.filter(i=>i.name===name&&i.size===size).reduce((s,i)=>s+i.qty,0);
   const qn=document.getElementById('qn-'+safeId);
-  if(qn) qn.textContent=ex.qty<=0?0:ex.qty;
+  if(qn) qn.textContent=totalQty;
   upd();
 }
 
