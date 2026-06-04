@@ -1295,8 +1295,7 @@ async function guardarEnSheets(notes, total) {
   const nombre = document.getElementById('cliente-nombre').value.trim();
   const payload = {
     items:    cart.map(i => ({ name: i.name, size: i.size, price: i.price, qty: i.qty, molienda: i.molienda||'En grano' })),
-    molienda: mol,
-    total:    total,
+          total:    total,
     notas:    notes,
     cliente:  nombre,
     fecha:    new Date().toISOString()
