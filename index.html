@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1010,18 +1011,22 @@ function incQty(name,size,price){
 }
 
 function decQty(name,size,price){
-  const safeId=name.replace(/ /g,'_').replace(/'/g,'');
+  const safeId=getSafeId(name);
   const qc=document.getElementById('qc-'+safeId);
   if(qc && qc.dataset.size) size=qc.dataset.size;
 
-  const key=name+'|'+size;
+  // La molienda activa determina cuál item del carrito decrementar
+  const molienda=getPmol(name);
+  const key=name+'|'+size+'|'+molienda;
   const ex=cart.find(i=>i.key===key);
   if(!ex||ex.qty===0) return;
   ex.qty--;
   if(ex.qty===0) cart=cart.filter(i=>i.key!==key);
 
+  // Mostrar total de todas las moliendas para este producto+tamaño
+  const totalQty=cart.filter(i=>i.name===name&&i.size===size).reduce((s,i)=>s+i.qty,0);
   const qn=document.getElementById('qn-'+safeId);
-  if(qn) qn.textContent=ex.qty<=0?0:ex.qty;
+  if(qn) qn.textContent=totalQty;
   upd();
 }
 
